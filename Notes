@@ -1,0 +1,9 @@
+Problems with kernel update being held back:
+http://forum.odroid.com/viewtopic.php?f=117&t=9189
+
+I beleive I followed this approach but failed to boot because the kernel had
+an invalid parameter.
+
+Recreate microSD from latest image:
+http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_release_note_v1.3
+
