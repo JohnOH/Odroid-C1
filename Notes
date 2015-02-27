@@ -46,3 +46,52 @@ My attempt to "Uncomment the line below to __DISABLE__ UHS-1 MicroSD support"
 failed. Whilst the first boot succeeded the subsequent boot after apt-get upgrade
 did not.
 
+--------------------------------------------------------------------------------
+Problems with:
+The following packages have been kept back:
+  linux-image-c1
+--
+john@odroid:~$ sudo aptitude full-upgrade
+The following packages will be upgraded:
+  linux-image-c1{b}
+1 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 848 B of archives. After unpacking 0 B will be used.
+The following packages have unmet dependencies:
+ linux-image-c1 : Conflicts: linux-image-3.10.67-55 but 20150203 is installed.
+The following actions will resolve these dependencies:
+
+     Remove the following packages:
+1)     linux-image-3.10.67-55
+
+
+
+Accept this solution? [Y/n/q/?] y
+The following packages will be REMOVED:
+  linux-image-3.10.67-55{a}
+The following packages will be upgraded:
+  linux-image-c1
+1 packages upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+Need to get 848 B of archives. After unpacking 36.5 MB will be freed.
+Do you want to continue? [Y/n/?] y
+Get: 1 http://deb.odroid.in/c1/ trusty/main linux-image-c1 armhf 71-1 [848 B]
+Fetched 848 B in 0s (4,499 B/s)
+dpkg: linux-image-3.10.67-55: dependency problems, but removing anyway as you requested:
+ linux-image-c1 depends on linux-image-3.10.67-55.
+
+(Reading database ... 160340 files and directories currently installed.)
+Removing linux-image-3.10.67-55 (20150203) ...
+Examining /etc/kernel/prerm.d.
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 3.10.67-55 /boot/vmlinuz-3.10.67-55
+update-initramfs: Deleting /boot/initrd.img-3.10.67-55
+(Reading database ... 159245 files and directories currently installed.)
+Preparing to unpack .../linux-image-c1_71-1_armhf.deb ...
+Unpacking linux-image-c1 (71-1) over (55-1) ...
+Setting up linux-image-c1 (71-1) ...
+
+Current status: 0 updates [-1].
+john@odroid:~$ sudo aptitude full-upgrade
+No packages will be installed, upgraded, or removed.
+0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B of archives. After unpacking 0 B will be used.
+--------------------------------------------------------------------------------
