@@ -51,6 +51,63 @@ Problems with:
 The following packages have been kept back:
   linux-image-c1
 --
+john@odroid:~$ sudo apt-get install aptitude
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  apt-xapian-index aptitude-common libboost-iostreams1.54.0 libcwidget3
+Suggested packages:
+  aptitude-doc-en aptitude-doc tasksel debtags libcwidget-dev
+The following NEW packages will be installed:
+  apt-xapian-index aptitude aptitude-common libboost-iostreams1.54.0
+  libcwidget3
+0 upgraded, 5 newly installed, 0 to remove and 1 not upgraded.
+Need to get 2,262 kB of archives.
+After this operation, 8,673 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ports.ubuntu.com/ubuntu-ports/ trusty-updates/main libboost-iostreams1.54.0 armhf 1.54.0-4ubuntu3.1 [26.2 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports/ trusty/main apt-xapian-index all 0.45ubuntu4 [56.4 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports/ trusty/main aptitude-common all 0.6.8.2-1ubuntu4 [700 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports/ trusty/main libcwidget3 armhf 0.5.16-3.5ubuntu1 [264 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports/ trusty/main aptitude armhf 0.6.8.2-1ubuntu4 [1,215 kB]
+Fetched 2,262 kB in 2s (777 kB/s)
+Selecting previously unselected package libboost-iostreams1.54.0:armhf.
+(Reading database ... 160148 files and directories currently installed.)
+Preparing to unpack .../libboost-iostreams1.54.0_1.54.0-4ubuntu3.1_armhf.deb ...
+Unpacking libboost-iostreams1.54.0:armhf (1.54.0-4ubuntu3.1) ...
+Selecting previously unselected package apt-xapian-index.
+Preparing to unpack .../apt-xapian-index_0.45ubuntu4_all.deb ...
+Unpacking apt-xapian-index (0.45ubuntu4) ...
+Selecting previously unselected package aptitude-common.
+Preparing to unpack .../aptitude-common_0.6.8.2-1ubuntu4_all.deb ...
+Unpacking aptitude-common (0.6.8.2-1ubuntu4) ...
+Selecting previously unselected package libcwidget3.
+Preparing to unpack .../libcwidget3_0.5.16-3.5ubuntu1_armhf.deb ...
+Unpacking libcwidget3 (0.5.16-3.5ubuntu1) ...
+Selecting previously unselected package aptitude.
+Preparing to unpack .../aptitude_0.6.8.2-1ubuntu4_armhf.deb ...
+Unpacking aptitude (0.6.8.2-1ubuntu4) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up libboost-iostreams1.54.0:armhf (1.54.0-4ubuntu3.1) ...
+Setting up apt-xapian-index (0.45ubuntu4) ...
+apt-xapian-index: Building new index in background...
+Setting up aptitude-common (0.6.8.2-1ubuntu4) ...
+Setting up libcwidget3 (0.5.16-3.5ubuntu1) ...
+Setting up aptitude (0.6.8.2-1ubuntu4) ...
+update-alternatives: using /usr/bin/aptitude-curses to provide /usr/bin/aptitude (aptitude) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/cs/man8/aptitude.8.gz because associated file /usr/share/man/cs/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man8/aptitude.8.gz because associated file /usr/share/man/de/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/es/man8/aptitude.8.gz because associated file /usr/share/man/es/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fi/man8/aptitude.8.gz because associated file /usr/share/man/fi/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man8/aptitude.8.gz because associated file /usr/share/man/fr/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/gl/man8/aptitude.8.gz because associated file /usr/share/man/gl/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man8/aptitude.8.gz because associated file /usr/share/man/it/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man8/aptitude.8.gz because associated file /usr/share/man/ja/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man8/aptitude.8.gz because associated file /usr/share/man/pl/man8/aptitude-curses.8.gz (of link group aptitude) doesn't exist
+Processing triggers for libc-bin (2.19-0ubuntu6.6) ...
+
+
 john@odroid:~$ sudo aptitude full-upgrade
 The following packages will be upgraded:
   linux-image-c1{b}
