@@ -152,3 +152,7 @@ No packages will be installed, upgraded, or removed.
 0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 Need to get 0 B of archives. After unpacking 0 B will be used.
 --------------------------------------------------------------------------------
+
+Expand file system to use all of microSD card.
+   sudo odroid-utility.sh
+Select as appropriate from the menu. This should be followed by a reboot.
