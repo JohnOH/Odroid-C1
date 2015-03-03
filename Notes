@@ -38,6 +38,9 @@ setenv condev "console=ttyS0,115200n8"        # on serial port
 At boot time ssh did not allow connections, I used ttyS0 the system console to
 enable it. I also needed to do:
 
+If you download the prebuilt image from the wiki, you should take care to remove
+ the included SSH host keys (rm /etc/ssh/*_key*) and generate new ones.
+ 
 dpkg-reconfigure openssh-server
 
 to setup the appropriate host keys.
@@ -156,3 +159,7 @@ Need to get 0 B of archives. After unpacking 0 B will be used.
 Expand file system to use all of microSD card.
    sudo odroid-utility.sh
 Select as appropriate from the menu. This should be followed by a reboot.
+
+Remove unused locales:
+  sudo locale-gen --purge en_GB.utf8 en_US.UTF-8 && echo Success!
+N.B. The mentioned locales are preserved while the rest are removed.
