@@ -33,6 +33,7 @@ hdparm -tT /dev/sda
 ~~~~~~~~~~~~
 Samsung Pro 16GB
 
+UHS-I disbled
 john@odroid-1:~$ dd if=/dev/zero of=test bs=1048576 count=2048
 2048+0 records in
 2048+0 records out
@@ -44,6 +45,7 @@ john@odroid-1:~$ dd if=test of=/dev/null bs=1048576
 ~~~~~~~~~~~~~
 Sandisk Extreme SDSDQXN-016G-G46A
 
+UHS-I enabled
 odroid@odroid:~$ dd if=/dev/zero of=test bs=1048576 count=2048
 2048+0 records in
 2048+0 records out
@@ -54,3 +56,1153 @@ odroid@odroid:~$ dd if=test of=/dev/null bs=1048576
 2147483648 bytes (2.1 GB) copied, 99.9541 s, 21.5 MB/s
 ~~~~~~~~~~~~~
 
+[    0.000000@0] Booting Linux on physical CPU 0x200
+[    0.000000@0] Initializing cgroup subsys cpu
+[    0.000000@0] Linux version 3.10.67-55 (root@xu3-b2) (gcc version 4.9.2 (Ubuntu/Linaro 4.9.2-0ubuntu1~14.04) ) #1 SMP PREEMPT Tue Feb 3 12:46:15 BRST 2015
+[    0.000000@0] CPU: ARMv7 Processor [410fc051] revision 1 (ARMv7), cr=10c5387d
+[    0.000000@0] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000@0] Machine: ODROIDC, model: AMLOGIC
+[    0.000000@0] physical memory start address is 0x200000
+[    0.000000@0] reserved_end is 79fffff
+[    0.000000@0]
+[    0.000000@0] Total memory is 1022 MiB
+[    0.000000@0] Reserved low memory from 0x06000000 to 0x079fffff, size:  26 MiB
+[    0.000000@0]        mesonfb0(low)           : 0x06100000 - 0x07900000 ( 24 MiB)
+[    0.000000@0]        mesonfb1(low)           : 0x07900000 - 0x07a00000 (  1 MiB)
+[    0.000000@0] cma: CMA: reserved 8 MiB at 3f800000
+[    0.000000@0] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000@0] On node 0 totalpages: 251392
+[    0.000000@0] free_area_init_node: node 0, pgdat c098df00, node_mem_map c0c91000
+[    0.000000@0]   Normal zone: 1520 pages used for memmap
+[    0.000000@0]   Normal zone: 0 pages reserved
+[    0.000000@0]   Normal zone: 184320 pages, LIFO batch:31
+[    0.000000@0]   HighMem zone: 524 pages used for memmap
+[    0.000000@0]   HighMem zone: 67072 pages, LIFO batch:15
+[    0.000000@0] Meson chip version = RevA (1B:A - 0:B72)
+[    0.000000@0] PERCPU: Embedded 8 pages/cpu @c149a000 s8512 r8192 d16064 u32768
+[    0.000000@0] pcpu-alloc: s8512 r8192 d16064 u32768 alloc=8*4096
+[    0.000000@0] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 249872
+[    0.000000@0] Kernel command line: root=UUID=e139ce78-9841-40fe-8823-96a304a09859 rootwait ro console=ttyS0,115200n8 no_console_suspend vdaccfg=0xa000 logo=osd1,loaded,0x7900000,720p,full dmfc=3 cvbsmode=576cvbs hdmimode=1080p m_bpp=32 vout=
+[    0.000000@0] cvbs trimming line = 0xa000
+[    0.000000@0] cvbs trimming.1.v5: 0xa0, 0x0
+[    0.000000@0] osd1:1
+[    0.000000@0] loaded:268435459
+[    0.000000@0] logo has been loaded
+[    0.000000@0] 720p:10
+[    0.000000@0] full:2
+[    0.000000@0] kernel get cvbsmode form uboot is 576cvbs
+[    0.000000@0] kernel get hdmimode form uboot is 1080p
+[    0.000000@0] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000@0] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000@0] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000@0] Memory: 64MB 16MB 902MB = 982MB total
+[    0.000000@0] Memory: 973240k/973240k available, 32328k reserved, 260096K highmem
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000@0]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000@0]     vmalloc : 0xf0000000 - 0xff000000   ( 240 MB)
+[    0.000000@0]     lowmem  : 0xc0000000 - 0xef800000   ( 760 MB)
+[    0.000000@0]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000@0]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000@0]       .text : 0xc0008000 - 0xc08df914   (9055 kB)
+[    0.000000@0]       .init : 0xc08e0000 - 0xc0917140   ( 221 kB)
+[    0.000000@0]       .data : 0xc0918000 - 0xc098ee60   ( 476 kB)
+[    0.000000@0]        .bss : 0xc098ee60 - 0xc0c8ce5c   (3064 kB)
+[    0.000000@0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0] NR_IRQS:256
+[    0.000000@0] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 4294967ms
+[    0.000000@0] Global timer: MESON TIMER-F (c0932a80) initialized
+[    0.000000@0] Switching to timer-based delay loop
+[    0.000000@0] Console: colour dummy device 80x30
+[    0.000000@0] meson_serial_console_setup
+[    0.000000@0] console [ttyS0] enabled
+[    0.291939@0] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=10000)
+[    0.302224@0] pid_max: default: 32768 minimum: 301
+[    0.307122@0] Security Framework initialized
+[    0.311248@0] SELinux:  Initializing.
+[    0.314874@0] SELinux:  Starting in permissive mode
+[    0.314894@0] AppArmor: AppArmor disabled by boot time parameter
+[    0.320940@0] Mount-cache hash table entries: 512
+[    0.329505@0] Initializing cgroup subsys devices
+[    0.330255@0] CPU: Testing write buffer coherency: ok
+[    0.335550@0] CPU0: thread -1, cpu 0, socket 2, mpidr 80000200
+[    0.341024@0] Setting up static identity map for 0xc063e410 - 0xc063e468
+[    0.347662@0] L310 cache controller enabled
+[    0.351764@0] l2x0: 8 ways, 2048 sets, CACHE_ID 0x4100a0c9,  Cache size: 524288 B
+[    0.359161@0]       AUX_CTRL 0x7ec60001, PERFETCH_CTRL 0x75000007, POWER_CTRL  0x00000000
+[    0.367311@0]       TAG_LATENCY 0x00000111, DATA_LATENCY 0x00000222
+[    0.450313@1] CPU1: Booted secondary processor
+[    0.450330@1] CPU1: thread -1, cpu 1, socket 2, mpidr 80000201
+[    0.470304@2] CPU2: Booted secondary processor
+[    0.470322@2] CPU2: thread -1, cpu 2, socket 2, mpidr 80000202
+[    0.490303@3] CPU3: Booted secondary processor
+[    0.490321@3] CPU3: thread -1, cpu 3, socket 2, mpidr 80000203
+[    0.490408@0] Brought up 4 CPUs
+[    0.518588@0] SMP: Total of 4 processors activated (8.00 BogoMIPS).
+[    0.524814@0] CPU: All CPU(s) started in SVC mode.
+[    0.530285@0] devtmpfs: initialized
+[    0.539325@0] clkrate [ xtal         ] : 24000000
+[    0.539357@0] clkrate [ pll_sys      ] : 1200000000
+[    0.542314@0] clkrate [ pll_fixed    ] : 2550000000
+[    0.546966@0] clkrate [ pll_vid      ] : 732000000
+[    0.551393@0] clkrate [ pll_ddr      ] : 0
+[    0.555106@0] clkrate [ a9_clk       ] : 1200000000
+[    0.559522@0] clkrate [ clk81        ] : 159375000
+[    0.564218@0] pinctrl core: initialized pinctrl subsystem
+[    0.569381@0] regulator-dummy: no parameters
+[    0.573894@0] NET: Registered protocol family 16
+[    0.581998@0] DMA: preallocated 4096 KiB pool for atomic coherent allocations
+[    0.586063@0] VPU driver version: v02
+[    0.588702@0] load vpu_clk in dts: 182150000Hz(3)
+[    0.593435@0] vpu_probe OK
+[    0.598066@0] amlogic_gpio gpio: Probed amlogic GPIO driver
+[    0.601974@0] register lm device lm-root
+[    0.605541@0] register lm device lm1
+[    0.609094@0] register lm device lm0
+[    0.612754@0] Init pinux probe!
+[    0.616385@0] pinmux-m8b pinmux: Probed amlogic pinctrl driver
+[    0.621564@0] tv_init_module
+[    0.624382@0] major number 254 for disp
+[    0.628184@0] vout_register_server
+[    0.631575@0] register tv module server ok
+[    0.667953@0] bio: create slab <bio-0> at 0
+[    0.668631@0] SCSI subsystem initialized
+[    0.670608@0] usbcore: registered new interface driver usbfs
+[    0.676070@0] usbcore: registered new interface driver hub
+[    0.681586@0] usbcore: registered new device driver usb
+[    0.686760@0] Linux video capture interface: v2.00
+[    0.691885@0] request vpu clk holdings: venci 106250000Hz
+[    0.696819@0] TV mode 576cvbs selected.
+[    0.700638@0] tvoutc_setmode[458]
+[    0.703909@0] mode is: 7
+[    0.706419@0] VPU_VIU_VENC_MUX_CTRL: 0x5
+[    0.710326@0] viu chan = 1
+[    0.712999@0] VPU_VIU_VENC_MUX_CTRL: 0x5
+[    0.716895@0] config HPLL
+[    0.719494@0] config HPLL done
+[    1.730045@0] vdac open.1 = 0x1, 0x0
+[    1.730073@0] aml_logo: outputmode changed(10->7), reset osd1 scaler.
+[    1.813268@0] Advanced Linux Sound Architecture Driver Initialized.
+[    1.814347@0] Bluetooth: Core ver 2.16
+[    1.817660@0] NET: Registered protocol family 31
+[    1.822235@0] Bluetooth: HCI device and connection manager initialized
+[    1.828709@0] Bluetooth: HCI socket layer initialized
+[    1.833750@0] Bluetooth: L2CAP socket layer initialized
+[    1.838943@0] Bluetooth: SCO socket layer initialized
+[    1.844170@0] cfg80211: Calling CRDA to update world regulatory domain
+[    1.851615@0] Switching to clocksource Timer-E
+[    1.863549@0] NET: Registered protocol family 2
+[    1.864237@0] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    1.869763@0] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    1.876346@0] TCP: Hash tables configured (established 8192 bind 8192)
+[    1.882758@0] TCP: reno registered
+[    1.886115@0] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    1.892178@0] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    1.898877@0] NET: Registered protocol family 1
+[    1.903343@0] Unpacking initramfs...
+[    2.018755@2] Freeing initrd memory: 2060K (c4e08000 - c500b000)
+[    2.019972@2] audit: initializing netlink socket (disabled)
+[    2.024719@2] type=2000 audit(1.930:1): initialized
+[    2.030098@2] bounce pool size: 64 pages
+[    2.038404@2] VFS: Disk quotas dquot_6.5.2
+[    2.038648@2] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    2.045670@2] msgmni has been set to 1396
+[    2.048164@2] SELinux:  Registering netfilter hooks
+[    2.049771@2] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    2.055696@2] io scheduler noop registered
+[    2.059735@2] io scheduler deadline registered
+[    2.064285@2] io scheduler cfq registered (default)
+[    2.121922@2] [drm] Initialized drm 1.1.0 20060810
+[    2.122102@2] gpu cooling register okay with err=0
+[    2.128481@2] Mali: Mali device driver loaded
+[    2.130381@2] UMP: UMP device driver 0000 loaded
+[    2.138001@2] loop: module loaded
+[    2.138609@2] tun: Universal TUN/TAP device driver, 1.6
+[    2.143245@2] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    2.149750@2] PPP generic driver version 2.4.2
+[    2.154356@2] usbcore: registered new interface driver cdc_acm
+[    2.159804@2] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    2.167999@2] usbcore: registered new interface driver usb-storage
+[    2.174160@2] usbcore: registered new interface driver usbserial
+[    2.180096@2] usbcore: registered new interface driver usbserial_generic
+[    2.186755@2] usbserial: USB Serial support registered for generic
+[    2.192873@2] ERROR::usb_gadget_probe_driver:1377: usb_gadget_register_driver ENODEV
+[    2.192873@2]
+[    2.202547@2] mousedev: PS/2 mouse device common for all mice
+[    2.208205@2] i2c /dev entries driver
+[    2.211639@2] IR NEC protocol handler initialized
+[    2.216257@2] IR RC5(x) protocol handler initialized
+[    2.221173@2] IR RC6 protocol handler initialized
+[    2.225871@2] IR JVC protocol handler initialized
+[    2.230525@2] IR Sony protocol handler initialized
+[    2.235300@2] IR RC5 (streamzap) protocol handler initialized
+[    2.241002@2] IR SANYO protocol handler initialized
+[    2.245864@2] IR MCE Keyboard/mouse protocol handler initialized
+[    2.252072@2] device-mapper: uevent: version 1.0.3
+[    2.256889@2] device-mapper: ioctl: 4.24.0-ioctl (2013-01-15) initialised: dm-devel@redhat.com
+[    2.265299@2] Bluetooth: HCI UART driver ver 2.2
+[    2.269752@2] Bluetooth: HCI H4 protocol initialized
+[    2.274685@2] Bluetooth: HCI BCSP protocol initialized
+[    2.279812@2] Bluetooth: HCILL protocol initialized
+[    2.284643@2] Bluetooth: HCIATH3K protocol initialized
+[    2.289766@2] Bluetooth: HCI Three-wire UART (H5) protocol initialized
+[    2.296840@2] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.302444@2] hidraw: raw HID events driver (C) Jiri Kosina
+[    2.308209@2] usbcore: registered new interface driver usbhid
+[    2.313650@2] usbhid: USB HID core driver
+[    2.317880@2] efuse===========================================
+[    2.323597@2] efuse: device efuse created
+[    2.327485@2] efuse--------------------------------------------
+[    2.333306@2] vout_init_module
+[    2.336384@2] start init vout module
+[    2.340091@2] create  vout attribute ok
+[    2.344101@2] ge2d_init
+[    2.346490@2] ge2d_dev major:244
+[    2.349923@2] ge2d start monitor
+[    2.353131@2] osd_init
+[    2.353144@1] ge2d workqueue monitor start
+[    2.359601@2] osd_probe, vinfo:c067d6b8
+[    2.363655@2] Frame buffer memory assigned at phy:0x06100000, vir:0xf1000000, size=24576K
+[    2.371515@2] osd_probe, mydef_var:c09633c4, vinfo:c067d6b8
+[    2.377050@2] init fbdev bpp is :32
+[    2.380583@2] ---------------clear framebuffer0 memory
+[    2.439054@0] Console: switching to colour frame buffer device 240x67
+[    2.467208@0] Frame buffer memory assigned at phy:0x07900000, vir:0xf0600000, size=1024K
+[    2.475170@0] osd_probe, mydef_var:c09633c4, vinfo:c067d6b8
+[    2.480684@0] don't find to display_size_default from mesonfb-dts
+[    2.486760@0] init fbdev bpp is :24
+[    2.510132@0] osd probe ok
+[    2.570423@0] amlvideo-000: V4L2 device registered as video10
+[    2.570769@0] ionvideo-000: V4L2 device registered as video13
+[    2.576267@0] Video Technology Magazine Ion Video Capture Board ver 1.0 successfully loaded.
+[    2.584642@0] DI: di_init
+[    2.584736@0] aml_wdt_driver_init,301
+[    2.588295@0] ** disable watchdog
+[    2.591949@0] set uart_ao pinmux use pinctrl subsystem
+[    2.596701@0] P_AO_RTI_PIN_MUX_REG:78001801
+[    2.600853@0] start uart_ao_ttyS0:(irq = 122)
+[    2.605177@0] register uart_ao ok
+[    2.608699@0] set uart_b pinmux use pinctrl subsystem
+[    2.613485@0] P_AO_RTI_PIN_MUX_REG:78001801
+[    2.617667@0] start uart_b_ttyS2:(irq = 107)
+[    2.621875@0] register uart_b ok
+[    2.625164@0] dwc_otg: version 3.10a 12-MAY-2014
+[    2.629693@0] dwc_otg lm-root: dwc_otg_driver_probe(ef338e00)
+[    2.629703@0] dwc_otg_driver_probe NOT match
+[    2.633940@0] dwc_otg lm1: dwc_otg_driver_probe(ef339000)
+[    2.673942@0] usb1: type: 1, speed: 0, config: 0, dma: 0, id: 1, phy: fe108820, ctrl: fe080000
+[    2.676935@0] USB (1) use clock source: XTAL input
+[    2.682718@0] dwc_otg lm1: base=0xfe080000
+[    2.682728@0] dwc_otg lm1: dwc_otg_device=0xeea7b400
+[    2.702851@0] Core Release: 3.10a
+[    2.702885@0] Setting default values for core params
+[    2.705494@0] curmode: 1, host_only: 1
+[    2.709203@0] dwc_otg lm1: DMA config: BURST_DEFAULT
+[    2.729359@0] Using Buffer DMA mode
+[    2.729388@0] OTG VER PARAM: 1, OTG VER FLAG: 1
+[    2.731724@0] Working on port type = HOST
+[    2.735958@0] dwc_otg lm1: DWC OTG Controller
+[    2.740050@0] dwc_otg lm1: new USB bus registered, assigned bus number 1
+[    2.746741@0] dwc_otg lm1: irq 63, io mem 0x00000000
+[    2.751641@0] -------hcd->flags.d32 = 0
+[    2.755477@0] Init: Port Power? op_state=1
+[    2.759511@0] Init1: Power Port (0)
+[    2.763547@0] hub 1-0:1.0: USB hub found
+[    2.766906@0] hub 1-0:1.0: 1 port detected
+[    2.771169@0] dwc_otg lm0: dwc_otg_driver_probe(ef339200)
+[    2.771206@0] usb0: type: 0, speed: 0, config: 0, dma: 0, id: 0, phy: fe108800, ctrl: fe040000
+[    2.779541@0] USB (0) use clock source: XTAL input
+[    2.785279@0] dwc_otg lm0: base=0xfe040000
+[    2.785290@0] dwc_otg lm0: dwc_otg_device=0xeea95dc0
+[    2.805377@0] Core Release: 3.10a
+[    2.805409@0] Setting default values for core params
+[    2.807998@0] curmode: 1, host_only: 0
+[    2.851704@0] dwc_otg lm0: DMA config: BURST_DEFAULT
+[    2.871863@0] Using Buffer DMA mode
+[    2.871891@0] OTG VER PARAM: 1, OTG VER FLAG: 1
+[    2.874220@0] Working on port type = OTG
+[    2.878133@0] Current port type: SLAVE
+[    2.882048@0] dwc_otg lm0: DWC OTG Controller
+[    2.886211@0] dwc_otg lm0: new USB bus registered, assigned bus number 2
+[    2.892870@0] dwc_otg lm0: irq 62, io mem 0x00000000
+[    2.898310@0] hub 2-0:1.0: USB hub found
+[    2.901681@0] hub 2-0:1.0: 1 port detected
+[    2.905962@0] Dedicated Tx FIFOs mode
+[    2.909770@0] using timer detect id change, ef3f6c00
+[    2.914454@0] ethernet_driver probe!
+[    2.917898@0] ethernetinit(dbg[c0967fe0]=1)
+[    2.922056@0] ethernet base addr is fe0c0000
+[    2.926337@0] write mac add to:eea88008: 00 1e 06 c2 b2 b5 |.\x1e....|
+[    2.936880@0] libphy: AMLMAC MII Bus: probed
+[    2.936914@0] eth0: PHY ID 001cc916 at 0 IRQ -1 (0:00) active
+[    2.942453@0] eth0: PHY ID 001cc916 at 1 IRQ -1 (0:01) active
+[    2.948372@0] amvideocap_init_module
+[    2.951997@0] [tsync_pcr_init]init success.
+[    2.956022@0] regist mpeg12 codec profile
+[    2.959980@0] regist mpeg4 codec profile
+[    2.963838@0] amvdec_vc1 module init
+[    2.967482@1] Indeed it is in host mode hprt0 = 00021501
+[    2.967485@0] regist vc1 codec profile
+[    2.967491@0] amvdec_h264 module init
+[    2.967562@0] regist h264 codec profile
+[    2.967564@0] amvdec_h265 module init
+[    2.967603@0] regist hevc codec profile
+[    2.967641@0] regist mjpeg codec profile
+[    2.967643@0] amvdec_real module init
+[    2.967680@0] regist real codec profile
+[    2.967682@0] amvdec_avs module init
+[    2.967834@0] regist avc codec profile
+[    2.967836@0] jpegenc module init
+[    2.968016@0] alloc_keep_buffer keep_y_addr ee600000
+[    2.968087@0] alloc_keep_buffer keep_u_addr eec00000
+[    2.968114@0] alloc_keep_buffer keep_v_addr eeb80000
+[    2.968133@0] yaddr=ee600000,u_addr=eec00000,v_addr=eeb80000
+[    3.033830@0] create_ge2d_work_queue video task ok
+[    3.038732@0] SARADC Driver init.
+[    3.041873@0] __saradc_probe__
+[    3.185023@0] saradc calibration: ref_val = 508
+[    3.185053@0] saradc calibration: ref_nominal = 512
+[    3.188764@0] saradc calibration: coef = 4128
+[    3.193351@0] ir irblaster probe
+[    3.196497@0] Remote Driver
+[    3.199127@0] Remote platform_data g_remote_base=fe600580
+[    3.204462@0] set drvdata completed
+[    3.204929@1] usb 1-1: new high-speed USB device number 2 using dwc_otg
+[    3.205202@3] Indeed it is in host mode hprt0 = 00001101
+[    3.219926@0] device_create_file completed
+[    3.224552@0] input: aml_keypad as /devices/platform/meson-remote/input/input0
+[    3.231596@0] input_register_device completed
+[    3.235849@0] [0x0] = 0x1dd0190
+[    3.238899@0] [0x4] = 0xf800ca
+[    3.241930@0] [0x8] = 0x82006e
+[    3.244982@0] [0xc] = 0x3c0030
+[    3.247991@0] [0x10] = 0x30fa0013
+[    3.251316@0] [0x18] = 0x6f19000
+[    3.254485@0] [0x1c] = 0x9f40
+[    3.257446@0] [0x20] = 0x0
+[    3.260113@0] [0x24] = 0x0
+[    3.262797@0] [0x28] = 0x0
+[    3.265494@0] set_remote_mode[65]
+[    3.268794@0] remote config major:241
+[    3.272656@0] physical address:0x2eca6000
+[    3.276552@0] ==touch_ts_init==
+[    3.279684@0] ==ft5x0x_ts_init==
+[    3.282831@0] ==goodix_ts_init==
+[    3.286073@0] i2c-core: driver [gslx680_compatible] using legacy suspend method
+[    3.293314@0] i2c-core: driver [gslx680_compatible] using legacy resume method
+[    3.300507@0] !!!ntp_ts: ret = 0.
+[    3.303841@0] VTL ct36x TouchScreen driver, <george.chen@vtl.com.cn>.
+[    3.310319@0] i2c-core: driver [ct36x] using legacy suspend method
+[    3.316415@0] i2c-core: driver [ct36x] using legacy resume method
+[    3.322457@0] VTL ct36x TouchScreen driver End.
+[    3.326975@0] ==gsl_ts_init==
+[    3.329929@0] ret=0
+[    3.332160@0] i2c-core: driver [mir3da] using legacy suspend method
+[    3.338237@0] i2c-core: driver [mir3da] using legacy resume method
+[    3.344390@0] i2c-core: driver [lis3dh_acc] using legacy suspend method
+[    3.350991@0] i2c-core: driver [lis3dh_acc] using legacy resume method
+[    3.357510@0] i2c-core: driver [bma222] using legacy suspend method
+[    3.363673@0] i2c-core: driver [bma222] using legacy resume method
+[    3.369885@0] i2c-core: driver [dmard06] using legacy suspend method
+[    3.376193@0] i2c-core: driver [dmard06] using legacy resume method
+[    3.382405@0] lsm303d driver: init
+[    3.385816@0] i2c-core: driver [dmard10] using legacy suspend method
+[    3.392104@0] i2c-core: driver [dmard10] using legacy resume method
+[    3.398386@1] stk8313_init
+[    3.398923@3] hub 1-1:1.0: USB hub found
+[    3.399256@3] hub 1-1:1.0: 4 ports detected
+[    3.409123@1] ======stk831x init ok======
+[    3.413029@1] stk831x_init
+[    3.415758@1] mxc622x accelerometer driver: init
+[    3.420325@1] i2c-core: driver [mxc622x] using legacy suspend method
+[    3.426639@1] i2c-core: driver [mxc622x] using legacy resume method
+[    3.432858@1] mxc6255xc accelerometer driver: init
+[    3.437659@1] i2c-core: driver [mxc6255xc] using legacy suspend method
+[    3.444113@1] i2c-core: driver [mxc6255xc] using legacy resume method
+[    3.450607@1] cm3217 v.1.0.0.1
+[    3.453575@1] i2c-core: driver [elan_epl6814] using legacy suspend method
+[    3.460322@1] i2c-core: driver [elan_epl6814] using legacy resume method
+[    3.467028@1] i2c-core: driver [LTR501] using legacy suspend method
+[    3.473207@1] i2c-core: driver [LTR501] using legacy resume method
+[    3.479490@1] mmc driver version: 1.07, 2014-06-30: eMMC add hw reset function
+[    3.487483@0] host->base fe108e00
+[    3.489905@0] pdata->caps 78107
+[    3.493017@0] pdata->caps2 0
+[    3.495831@0] get property:                     port, value:0x00000004
+[    3.502302@0] get property:                ocr_avail, value:0x00200080
+[    3.508812@0] get property:                    f_min, value:0x000493e0
+[    3.515335@0] get property:                    f_max, value:0x05f5e100
+[    3.521785@0] get property:             max_req_size, value:0x00020000
+[    3.528294@0] get property:                   irq_in, value:0x00000003
+[    3.534802@0] get property:                  irq_out, value:0x00000005
+[    3.541291@0] get property:                  gpio_cd, str:CARD_6
+[    3.547258@0] get property:                  pinname, str:sd
+[    3.552901@0] get property:                card_type, value:0x00000005
+[    3.559382@0] get property:                gpio_dat3, str:CARD_4
+[    3.565352@0] get property:               gpio_volsw, str:GPIOAO_3
+[    3.571683@0] aml_sd_voltage_switch[1309] : Switched to voltage -> 3.30 V
+[    3.634919@0] sd: mmc_rescan_try_freq: trying to init card at 400000 Hz
+[    3.664507@1] sd: new high speed SDHC card at address aaaa, clock 50000000, 4-bit-bus-width
+[    3.667592@1] mmcblk0: sd:aaaa SE16G 14.8 GiB
+[    3.672550@1]  mmcblk0: p1 p2
+[    3.675220@3] usb 1-1.3: new full-speed USB device number 3 using dwc_otg
+[    3.694909@0] [aml_sdhc_probe] aml_sdhc_probe() success!
+[    3.695609@0] host->base fe108c20
+[    3.697917@0] pdata->caps 80000507
+[    3.701253@0] pdata->caps2 1
+[    3.704109@0] get property:                     port, value:0x00000002
+[    3.710666@0] get property:                ocr_avail, value:0x00200000
+[    3.717117@0] get property:                    f_min, value:0x000493e0
+[    3.723590@0] get property:                    f_max, value:0x02faf080
+[    3.730127@0] get property:                  f_max_w, value:0x02faf080
+[    3.736594@0] get property:             max_req_size, value:0x00020000
+[    3.743079@0] get property:                  pinname, str:emmc
+[    3.748887@0] get property:                card_type, value:0x00000001
+[    3.755415@0] get property:                gpio_dat3, str:BOOT_3
+[    3.761345@0] [is_emmc_exist] host->storage_flag=0, POR_BOOT_VALUE=1
+[    3.804937@1] emmc: mmc_rescan_try_freq: trying to init card at 400000 Hz
+[    3.806084@1] aml_emmc_hw_reset 1379
+[    3.864905@0] [aml_sdio_probe] aml_sdio_probe() success!
+[    3.865028@0] [dsp]DSP start addr 0xc5e00000
+[    3.868848@0] [dsp]register dsp to char divece(257)
+[    3.874665@0] aml_rtc rtc.1: rtc core: registered aml_rtc as rtc0
+[    3.881106@0] amlogic rfkill init
+[    3.883327@0] aml_hw_crypto initialization.
+[    3.888126@0] enter rt5616_modinit
+[    3.890707@0] dummy_codec_platform_probe
+[    3.894849@0] enter aml_i2s_dai_probe
+[    3.894859@0] i2s get no clk src setting in dts, use the default mpll 0
+[    3.901162@0] enter aml_pcm_dai_probe
+[    3.901352@0] test codec dummy_codec
+[    3.904583@0] using external codec, index = 1
+[    3.908929@0] using external dummy codec
+[    3.912939@0] enter spdif_dit_probe
+[    3.916380@0] aml_spdif_unmute
+[    3.919598@0] codec_name = dummy_codec.0
+[    3.923832@0] enter aml_asoc_init
+[    3.923863@0] spk_event delay_time = 130
+[    3.927356@0] aml_snd_m8 aml_m8_sound_card.5:  dummy_codec <-> aml-i2s-dai.0 mapping ok
+[    3.936423@0] aml-i2s 0:playback preallocate_dma_buffer: area=f04e8000, addr=3fd00000, size=524288
+[    3.944567@0] aml-i2s 1:capture preallocate_dma_buffer: area=f056a000, addr=3fc40000, size=65536
+[    3.952982@0] aml_snd_m8 aml_m8_sound_card.5:  dit-hifi <-> aml-spdif-dai.0 mapping ok
+[    3.961716@0] -----ext_codec=1---
+[    3.964069@0] aml_snd_m8: faild to get mute_gpio!
+[    3.968772@0] =aml_m8_pinmux_init==,aml_m8_pinmux_init done,---0
+[    3.974917@0] GACT probability NOT on
+[    3.978360@0] Mirror/redirect action on
+[    3.982713@0] NET: Registered protocol family 10
+[    3.987476@0] mip6: Mobile IPv6
+[    3.989873@0] sit: IPv6 over IPv4 tunneling driver
+[    3.995595@0] NET: Registered protocol family 17
+[    3.999247@0] NET: Registered protocol family 15
+[    4.003875@0] Bridge firewalling registered
+[    4.008117@0] Bluetooth: RFCOMM TTY layer initialized
+[    4.013057@0] Bluetooth: RFCOMM socket layer initialized
+[    4.018295@0] Bluetooth: RFCOMM ver 1.11
+[    4.022171@0] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    4.027638@0] Bluetooth: BNEP filters: protocol multicast
+[    4.033031@0] Bluetooth: BNEP socket layer initialized
+[    4.038118@0] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    4.044169@0] Bluetooth: HIDP socket layer initialized
+[    4.049307@0] NET: Registered protocol family 35
+[    4.054303@0] VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1
+[    4.061668@0] Registering SWP/SWPB emulation handler
+[    4.066603@0] enter meson_pm_init
+[    4.069992@0] enter meson_pm_probe!
+[    4.073388@0] meson_pm_probe done !
+[    4.077281@0] registered taskstats version 1
+[    4.081112@0] regulator-dummy: disabling
+[    4.085207@0] Mali DRM initialize, driver name: mali_drm, version 2.1
+[    4.091684@0] [drm] Initialized mali_drm 2.1.1 20140306 on minor 0
+[    4.097549@0] Mali DRM initialize, driver name: mali_drm, version 2.1
+[    4.104141@0] [drm] Initialized mali_drm 2.1.1 20140306 on minor 1
+[    4.110592@0] aml_rtc rtc.1: setting system clock to 2015-03-12 15:05:53 UTC (1426172753)
+[    4.118243@0] ### dt-test ### No testcase data in device tree; not running tests
+[    4.125689@0] meson_cpufreq_probe:SYSPLL request to be fixed
+[    4.131219@0] meson_cpufreq: no voltage_control prop
+[    4.136139@0] voltage_control = 0
+[    4.140257@0] <<-GTP-INFO->> GTP driver installing...
+[    4.144627@0] buf[0]=ef,buf[1]=af,err=4
+[    4.148258@0] adc=383,TS_C=15,flag=1
+[    4.151820@0] efuse_flag=a
+[    4.154477@0] amlogic_thermal_probe, this chip is trimmed, use thermal
+[    4.160984@0] amlogic-thermal aml_thermal: amlogic thermal probe start
+[    4.167475@0] #thermal-cells=7
+[    4.170517@0] pdata->temp_trip_count=4
+[    4.174220@0] temperature=70 on trip point=0
+[    4.178473@0] fixing high_freq=1488001 to 1488000 at trip point 0,level=3
+[    4.185223@0] fixing low_freq=1488001 to 1488000 at trip point 0,level=3
+[    4.191905@0] gpu[0].gpu_high_freq=511,tmp_level[0].gpu_high_freq=511
+[    4.198300@0] cpu[0] core num==3
+[    4.201493@0] gpu[0] core num==2
+[    4.204696@0] temperature=80 on trip point=1
+[    4.208948@0] fixing high_freq=1200001 to 1200000 at trip point 1,level=6
+[    4.215707@0] fixing low_freq=1200001 to 1200000 at trip point 1,level=6
+[    4.222361@0] gpu[1].gpu_high_freq=435,tmp_level[1].gpu_high_freq=435
+[    4.228783@0] cpu[1] core num==2
+[    4.231994@0] gpu[1] core num==2
+[    4.235187@0] temperature=90 on trip point=2
+[    4.239418@0] fixing high_freq=800001 to 696000 at trip point 2,level=11
+[    4.246096@0] fixing low_freq=800001 to 696000 at trip point 2,level=11
+[    4.252690@0] gpu[2].gpu_high_freq=328,tmp_level[2].gpu_high_freq=328
+[    4.259085@0] cpu[2] core num==1
+[    4.262278@0] gpu[2] core num==1
+[    4.265491@0] temperature=110 on trip point=3
+[    4.269810@0] fixing high_freq=-1 to -22 at trip point 3,level=-1
+[    4.275883@0] fixing low_freq=-1 to -22 at trip point 3,level=-1
+[    4.281847@0] gpu[3].gpu_high_freq=-1,tmp_level[3].gpu_high_freq=-1
+[    4.288090@0] cpu[3] core num==-1
+[    4.291394@0] gpu[3] core num==-1
+[    4.294663@0] idle interval=1000
+[    4.297878@0] pdata->name:aml_thermal
+[    4.301751@0] tmp_trip[0].cpu_core_upper=1
+[    4.305598@0] tmp_trip[1].cpu_core_upper=2
+[    4.309654@0] tmp_trip[2].cpu_core_upper=3
+[    4.313749@0] tmp_trip[3].cpu_core_upper=-1
+[    4.317891@0] aml_thermal bind thermal-cpucore-0 okay !
+[    4.323099@0] aml_thermal bind thermal-cpufreq-0 okay !
+[    4.328273@0] pdata->tmp_trip[0].gpu_lower_level=1
+[    4.333045@0] pdata->tmp_trip[0].gpu_upper_level=1
+[    4.337804@0] pdata->tmp_trip[1].gpu_lower_level=2
+[    4.342545@0] pdata->tmp_trip[1].gpu_upper_level=2
+[    4.347327@0] pdata->tmp_trip[2].gpu_lower_level=4
+[    4.352093@0] pdata->tmp_trip[2].gpu_upper_level=4
+[    4.356854@0] pdata->tmp_trip[3].gpu_lower_level=-1
+[    4.361681@0] pdata->tmp_trip[3].gpu_upper_level=-1
+[    4.366550@0] aml_thermal bind thermal-gpufreq-0 okay !
+[    4.371876@0] amlogic: Kernel Thermal management registered
+[    4.377285@0] amlogic-thermal aml_thermal: amlogic thermal probe done
+[    4.383956@0] input: cec_input as /devices/virtual/input/input1
+[    4.389742@0] ALSA device list:
+[    4.392713@0]   #0: AML-M8AUDIO
+[    4.396164@0] config uart_ao_ttyS0:: Character length 8bits/char
+[    4.414902@0] Changing uart_ao_ttyS0: baud from 0 to 115200
+[    4.435093@0] Freeing unused kernel memory: 220K (c08e0000 - c0917000)
+[    4.484075@2] systemd-udevd[112]: starting version 204
+[    4.690669@3] tvmode set to 1080p
+[    4.690669@3]
+[    4.690730@3] request vpu clk holdings: vencp 159375000Hz
+[    4.695550@3] TV mode 1080p selected.
+[    4.699143@3] tvoutc_setmode[458]
+[    4.702425@3] new mode 1080p
+[    4.702425@3]  set ok
+[    6.704927@1] set_vout_mode[156]
+[    7.815913@1] emmc: mmc_rescan_try_freq: trying to init card at 300000 Hz
+[    7.854899@1] aml_emmc_hw_reset 1379
+[   11.728303@3] force enable DISCARD here for ext4 fs
+[   11.737570@3] checked enable EXT4 DISCARD here
+[   11.737613@3] EXT4-fs (mmcblk0p2): mounting with "discard" option, but the device does not support discard
+[   11.746052@3] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[   12.236291@0] config uart_ao_ttyS0:: Character length 8bits/char
+[   12.290561@1] init: plymouth-upstart-bridge main process (166) terminated with status 1
+[   12.293179@1] init: plymouth-upstart-bridge main process ended, respawning
+[   12.304332@2] config uart_ao_ttyS0:: Character length 8bits/char
+[   12.330707@1] init: plymouth-upstart-bridge main process (175) terminated with status 1
+[   12.333184@1] init: plymouth-upstart-bridge main process ended, respawning
+[   12.350681@2] config uart_ao_ttyS0:: Character length 8bits/char
+[   12.368018@1] init: plymouth-upstart-bridge main process (178) terminated with status 1
+[   12.370482@1] init: plymouth-upstart-bridge main process ended, respawning
+[   12.392537@0] config uart_ao_ttyS0:: Character length 8bits/char
+[   12.895238@1] EXT4-fs (mmcblk0p2): re-mounted. Opts: errors=remount-ro
+[   13.487428@2] systemd-udevd[327]: starting version 204
+[   13.741154@2] fuse init (API version 7.22)
+[   14.026239@1] Driver for 1-wire Dallas network protocol.
+[   14.137936@1] aml_audio_i2s_mute_flag: flag=0
+[   14.137965@1] aml_spdif_unmute
+[   14.317685@0] usbcore: registered new interface driver ftdi_sio
+[   14.317754@0] usbserial: USB Serial support registered for FTDI USB Serial Device
+[   14.317881@0] ftdi_sio 1-1.3:1.0: FTDI USB Serial Device converter detected
+[   14.317998@0] usb 1-1.3: Detected FT232RL
+[   14.318008@0] usb 1-1.3: Number of endpoints 2
+[   14.318016@0] usb 1-1.3: Endpoint 1 MaxPacketSize 64
+[   14.318025@0] usb 1-1.3: Endpoint 2 MaxPacketSize 64
+[   14.318032@0] usb 1-1.3: Setting MaxPacketSize 64
+[   14.318699@0] usb 1-1.3: FTDI USB Serial Device converter now attached to ttyUSB0
+[   14.529125@1] ionvideo open
+[   14.529319@1] ionvideo_stop_generating!!!!
+[   14.529350@1] ionvideo release
+[   17.013353@0] netdev_open
+[   17.013367@0] Ethernet reset
+[   17.013394@0] NET MDA descpter start addr=ed800000
+[   17.067160@0] phy_interface = 0
+[   17.067178@0] aml_phy_init:  trying to attach to 0:01
+[   17.067354@0] am_rtl811f called phy reset
+[   14.529500@2] amlvideo openamlvideo close
+[   17.085059@2] --1--write mac add to:eea88008: 00 1e 06 c2 b2 b5 |.\x1e....|
+[   17.085085@2] --2--write mac add to:eea88008: 00 1e 06 c2 b2 b5 |.\x1e....|
+[   17.085101@2] write mac add to:eea88008: 00 1e 06 c2 b2 b5 |.\x1e....|
+[   17.085119@2] Current DMA mode=0, set mode=621c100
+[   17.085148@2] eth0: opened (irq 40).
+[   17.095152@2] ether leave promiscuous mode
+[   17.095167@2] ether leave all muticast mode
+[   17.095363@2] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   17.183279@1] cur_mode = 0
+[   17.183298@1] [0x0] = 0x1dd0190
+[   17.183308@1] [0x4] = 0xf800ca
+[   17.183318@1] [0x8] = 0x82006e
+[   17.183328@1] [0xc] = 0x3c0030
+[   17.183335@1] [0x10] = 0x30fa0013
+[   17.183343@1] [0x18] = 0x6f19000
+[   17.183354@1] [0x1c] = 0x9f40
+[   17.183361@1] [0x20] = 0x0
+[   17.183366@1] [0x24] = 0x0
+[   17.183374@1] [0x28] = 0x0
+[   17.183386@1] set_remote_mode[65]
+[   17.623131@2] aml_audio_i2s_mute_flag: flag=0
+[   17.623181@2] aml_spdif_unmute
+[   17.853914@2] EXT4-fs (mmcblk0p2): resizing filesystem from 1167104 to 3856128 blocks
+[   18.104031@1] EXT4-fs (mmcblk0p2): resized filesystem to 3856128
+[   18.238317@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 004c2850, xfer_step=3, status=4, cmd25=110, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   18.238317@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   18.238342@1] ***********SDHC_REGS***********
+[   18.238348@1] SDHC_ARGU: 0x00000900
+[   18.238353@1] SDHC_SEND: 0x000700d2
+[   18.238358@1] SDHC_CTRL: 0xe7ffe001
+[   18.238362@1] SDHC_STAT: 0x0000003e
+[   18.238367@1] SDHC_CLKC: 0x0002f010
+[   18.238371@1] SDHC_ADDR: 0x3fc80200
+[   18.238376@1] SDHC_PDMA: 0x2c43bcf0
+[   18.238381@1] SDHC_MISC: 0xe0000150
+[   18.238385@1] SDHC_DATA: 0x00014e0c
+[   18.238390@1] SDHC_ICTL: 0x000030e6
+[   18.238394@1] SDHC_ISTA: 0x00004549
+[   18.238399@1] SDHC_SRST: 0x00000000
+[   18.238403@1] SDHC_ESTA: 0x00000000
+[   18.238408@1] SDHC_ENHC: 0x00fe0cff
+[   18.238412@1] SDHC_CLK2: 0x0000100f
+[   18.238533@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   18.244051@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 004c2c90, xfer_step=3, status=4, cmd25=112, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x549, STAT=0x2e
+[   18.244051@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   18.244075@1] ***********SDHC_REGS***********
+[   18.244081@1] SDHC_ARGU: 0x00000900
+[   18.244085@1] SDHC_SEND: 0x000700d2
+[   18.244090@1] SDHC_CTRL: 0xe7ffe001
+[   18.244095@1] SDHC_STAT: 0x00000022
+[   18.244099@1] SDHC_CLKC: 0x0002f010
+[   18.244104@1] SDHC_ADDR: 0x3fc80200
+[   18.244109@1] SDHC_PDMA: 0x2c43bcf0
+[   18.244113@1] SDHC_MISC: 0xe0000150
+[   18.244118@1] SDHC_DATA: 0x0012001c
+[   18.244122@1] SDHC_ICTL: 0x000030e6
+[   18.244127@1] SDHC_ISTA: 0x00004549
+[   18.244131@1] SDHC_SRST: 0x00000000
+[   18.244136@1] SDHC_ESTA: 0x00000000
+[   18.244140@1] SDHC_ENHC: 0x00fe0cff
+[   18.244145@1] SDHC_CLK2: 0x0000100f
+[   18.244258@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   18.854559@1] init: plymouth-upstart-bridge main process ended, respawning
+[   20.085003@2] [adjust link] -> eth: full-duplex
+[   20.085005@2] [adjust link] -> eth: phy_speed <> priv_speed)
+[   20.085006@2] [adjust link] -> eth: switching to RGMII 100
+[   20.085017@2] [adjust link -> eth: am_adjust_link state change (new_state=true)
+[   20.085023@2] libphy: 0:01 - Link is Up - 100/Full
+[   20.085066@2] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   20.216698@3] init: plymouth-stop pre-start process (1015) terminated with status 1
+[   21.325594@1] create_disp_get_ump_secure_id******0
+[   21.326207@1] create_disp_get_ump_secure_id******1
+[   25.280659@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0028b2e0, xfer_step=3, status=4, cmd25=131, fifo_empty=0, fifo_full=0, timeout=0, Xfer 131072 Bytes, SEND=0xff00d2, iSTA=0x549, STAT=0x38
+[   25.280659@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.280684@1] ***********SDHC_REGS***********
+[   25.280690@1] SDHC_ARGU: 0x00000900
+[   25.280695@1] SDHC_SEND: 0x00ff00d2
+[   25.280699@1] SDHC_CTRL: 0xe7ffe001
+[   25.280704@1] SDHC_STAT: 0x00000038
+[   25.280708@1] SDHC_CLKC: 0x0002f010
+[   25.280713@1] SDHC_ADDR: 0x3fc80200
+[   25.280718@1] SDHC_PDMA: 0x2c43bcf0
+[   25.280722@1] SDHC_MISC: 0xe0000150
+[   25.280727@1] SDHC_DATA: 0x0021f810
+[   25.280731@1] SDHC_ICTL: 0x000030e6
+[   25.280736@1] SDHC_ISTA: 0x00004549
+[   25.280740@1] SDHC_SRST: 0x00000000
+[   25.280745@1] SDHC_ESTA: 0x00000000
+[   25.280749@1] SDHC_ENHC: 0x00fe0cff
+[   25.280754@1] SDHC_CLK2: 0x0000100f
+[   25.280847@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.368225@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00642fb0, xfer_step=3, status=4, cmd25=146, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x549, STAT=0x2c
+[   25.368225@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.368248@1] ***********SDHC_REGS***********
+[   25.368253@1] SDHC_ARGU: 0x00000900
+[   25.368258@1] SDHC_SEND: 0x000700d2
+[   25.368263@1] SDHC_CTRL: 0xe7ffe001
+[   25.368267@1] SDHC_STAT: 0x00000022
+[   25.368272@1] SDHC_CLKC: 0x0002f010
+[   25.368276@1] SDHC_ADDR: 0x3fc80200
+[   25.368281@1] SDHC_PDMA: 0x2c43bcf0
+[   25.368286@1] SDHC_MISC: 0xe0000150
+[   25.368290@1] SDHC_DATA: 0x00571024
+[   25.368295@1] SDHC_ICTL: 0x000030e6
+[   25.368299@1] SDHC_ISTA: 0x00000549
+[   25.368304@1] SDHC_SRST: 0x00000000
+[   25.368308@1] SDHC_ESTA: 0x00000000
+[   25.368313@1] SDHC_ENHC: 0x00fe0cff
+[   25.368317@1] SDHC_CLK2: 0x0000100f
+[   25.368413@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.389005@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0058c398, xfer_step=3, status=4, cmd25=150, fifo_empty=0, fifo_full=0, timeout=0, Xfer 16384 Bytes, SEND=0x1f00d2, iSTA=0x549, STAT=0x34
+[   25.389005@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.389030@1] ***********SDHC_REGS***********
+[   25.389036@1] SDHC_ARGU: 0x00000900
+[   25.389041@1] SDHC_SEND: 0x001f00d2
+[   25.389046@1] SDHC_CTRL: 0xe7ffe001
+[   25.389050@1] SDHC_STAT: 0x0000002e
+[   25.389054@1] SDHC_CLKC: 0x0002f010
+[   25.389059@1] SDHC_ADDR: 0x3fc80200
+[   25.389064@1] SDHC_PDMA: 0x2c43bcf0
+[   25.389068@1] SDHC_MISC: 0xe0000150
+[   25.389073@1] SDHC_DATA: 0x6d763f6c
+[   25.389078@1] SDHC_ICTL: 0x000030e6
+[   25.389082@1] SDHC_ISTA: 0x00004549
+[   25.389087@1] SDHC_SRST: 0x00000000
+[   25.389091@1] SDHC_ESTA: 0x00000000
+[   25.389096@1] SDHC_ENHC: 0x00fe0cff
+[   25.389100@1] SDHC_CLK2: 0x0000100f
+[   25.389195@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.395948@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 005f6d08, xfer_step=3, status=4, cmd25=151, fifo_empty=0, fifo_full=0, timeout=0, Xfer 12288 Bytes, SEND=0x1700d2, iSTA=0x549, STAT=0x24
+[   25.395948@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.395972@1] ***********SDHC_REGS***********
+[   25.395978@1] SDHC_ARGU: 0x00000900
+[   25.395982@1] SDHC_SEND: 0x001700d2
+[   25.395987@1] SDHC_CTRL: 0xe7ffe001
+[   25.395992@1] SDHC_STAT: 0x00000034
+[   25.395996@1] SDHC_CLKC: 0x0002f010
+[   25.396001@1] SDHC_ADDR: 0x3fc80200
+[   25.396006@1] SDHC_PDMA: 0x2c43bcf0
+[   25.396010@1] SDHC_MISC: 0xe0000150
+[   25.396015@1] SDHC_DATA: 0x6d763f6c
+[   25.396019@1] SDHC_ICTL: 0x000030e6
+[   25.396024@1] SDHC_ISTA: 0x00000549
+[   25.396028@1] SDHC_SRST: 0x00000000
+[   25.396033@1] SDHC_ESTA: 0x00000000
+[   25.396037@1] SDHC_ENHC: 0x00fe0cff
+[   25.396042@1] SDHC_CLK2: 0x0000100f
+[   25.396144@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.408495@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0073feb8, xfer_step=3, status=4, cmd25=154, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x549, STAT=0x3c
+[   25.408495@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.408520@1] ***********SDHC_REGS***********
+[   25.408526@1] SDHC_ARGU: 0x00000900
+[   25.408530@1] SDHC_SEND: 0x000700d2
+[   25.408535@1] SDHC_CTRL: 0xe7ffe001
+[   25.408539@1] SDHC_STAT: 0x00000020
+[   25.408544@1] SDHC_CLKC: 0x0002f010
+[   25.408549@1] SDHC_ADDR: 0x3fc80200
+[   25.408553@1] SDHC_PDMA: 0x2c43bcf0
+[   25.408558@1] SDHC_MISC: 0xe0000150
+[   25.408562@1] SDHC_DATA: 0x6d763f6c
+[   25.408567@1] SDHC_ICTL: 0x000030e6
+[   25.408572@1] SDHC_ISTA: 0x00004549
+[   25.408576@1] SDHC_SRST: 0x00000000
+[   25.408581@1] SDHC_ESTA: 0x00000000
+[   25.408585@1] SDHC_ENHC: 0x00fe0cff
+[   25.408590@1] SDHC_CLK2: 0x0000100f
+[   25.408685@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.415177@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 006445b0, xfer_step=3, status=4, cmd25=155, fifo_empty=0, fifo_full=0, timeout=0, Xfer 8192 Bytes, SEND=0xf00d2, iSTA=0x549, STAT=0x38
+[   25.415177@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.415199@1] ***********SDHC_REGS***********
+[   25.415204@1] SDHC_ARGU: 0x00000900
+[   25.415209@1] SDHC_SEND: 0x000f00d2
+[   25.415214@1] SDHC_CTRL: 0xe7ffe001
+[   25.415218@1] SDHC_STAT: 0x00000024
+[   25.415223@1] SDHC_CLKC: 0x0002f010
+[   25.415227@1] SDHC_ADDR: 0x3fc80200
+[   25.415232@1] SDHC_PDMA: 0x2c43bcf0
+[   25.415236@1] SDHC_MISC: 0xe0000150
+[   25.415241@1] SDHC_DATA: 0x6d763f6c
+[   25.415246@1] SDHC_ICTL: 0x000030e6
+[   25.415250@1] SDHC_ISTA: 0x00000549
+[   25.415254@1] SDHC_SRST: 0x00000000
+[   25.415259@1] SDHC_ESTA: 0x00000000
+[   25.415263@1] SDHC_ENHC: 0x00fe0cff
+[   25.415268@1] SDHC_CLK2: 0x0000100f
+[   25.415700@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.468283@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 005f84f8, xfer_step=3, status=4, cmd25=158, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.468283@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.468307@1] ***********SDHC_REGS***********
+[   25.468312@1] SDHC_ARGU: 0x00000900
+[   25.468317@1] SDHC_SEND: 0x000700d2
+[   25.468322@1] SDHC_CTRL: 0xe7ffe001
+[   25.468326@1] SDHC_STAT: 0x00000020
+[   25.468331@1] SDHC_CLKC: 0x0002f010
+[   25.468335@1] SDHC_ADDR: 0x3fc80200
+[   25.468340@1] SDHC_PDMA: 0x2c43bcf0
+[   25.468345@1] SDHC_MISC: 0xe0000150
+[   25.468349@1] SDHC_DATA: 0x6d763f6c
+[   25.468354@1] SDHC_ICTL: 0x000030e6
+[   25.468358@1] SDHC_ISTA: 0x00004549
+[   25.468363@1] SDHC_SRST: 0x00000000
+[   25.468367@1] SDHC_ESTA: 0x00000000
+[   25.468372@1] SDHC_ENHC: 0x00fe0cff
+[   25.468376@1] SDHC_CLK2: 0x0000100f
+[   25.468474@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.579190@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00741100, xfer_step=3, status=4, cmd25=162, fifo_empty=0, fifo_full=0, timeout=0, Xfer 8192 Bytes, SEND=0xf00d2, iSTA=0x4549, STAT=0x20
+[   25.579190@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.579214@1] ***********SDHC_REGS***********
+[   25.579220@1] SDHC_ARGU: 0x00000900
+[   25.579225@1] SDHC_SEND: 0x000f00d2
+[   25.579230@1] SDHC_CTRL: 0xe7ffe001
+[   25.579234@1] SDHC_STAT: 0x00000020
+[   25.579239@1] SDHC_CLKC: 0x0002f010
+[   25.579243@1] SDHC_ADDR: 0x3fc80200
+[   25.579248@1] SDHC_PDMA: 0x2c43bcf0
+[   25.579253@1] SDHC_MISC: 0xe0000150
+[   25.579257@1] SDHC_DATA: 0x000081dd
+[   25.579262@1] SDHC_ICTL: 0x000030e6
+[   25.579267@1] SDHC_ISTA: 0x00004549
+[   25.579271@1] SDHC_SRST: 0x00000000
+[   25.579276@1] SDHC_ESTA: 0x00000000
+[   25.579280@1] SDHC_ENHC: 0x00fe0cff
+[   25.579285@1] SDHC_CLK2: 0x0000100f
+[   25.579381@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.688403@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00502e20, xfer_step=3, status=4, cmd25=178, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.688403@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.688429@1] ***********SDHC_REGS***********
+[   25.688434@1] SDHC_ARGU: 0x00000900
+[   25.688439@1] SDHC_SEND: 0x000700d2
+[   25.688443@1] SDHC_CTRL: 0xe7ffe001
+[   25.688448@1] SDHC_STAT: 0x00000020
+[   25.688453@1] SDHC_CLKC: 0x0002f010
+[   25.688457@1] SDHC_ADDR: 0x3fc80200
+[   25.688462@1] SDHC_PDMA: 0x2c43bcf0
+[   25.688466@1] SDHC_MISC: 0xe0000150
+[   25.688471@1] SDHC_DATA: 0x0001700c
+[   25.688476@1] SDHC_ICTL: 0x000030e6
+[   25.688480@1] SDHC_ISTA: 0x00004549
+[   25.688485@1] SDHC_SRST: 0x00000000
+[   25.688489@1] SDHC_ESTA: 0x00000000
+[   25.688494@1] SDHC_ENHC: 0x00fe0cff
+[   25.688498@1] SDHC_CLK2: 0x0000100f
+[   25.688595@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.694236@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0051d0b0, xfer_step=3, status=4, cmd25=179, fifo_empty=0, fifo_full=0, timeout=0, Xfer 8192 Bytes, SEND=0xf00d2, iSTA=0x549, STAT=0x26
+[   25.694236@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.694256@1] ***********SDHC_REGS***********
+[   25.694262@1] SDHC_ARGU: 0x00000900
+[   25.694266@1] SDHC_SEND: 0x000f00d2
+[   25.694271@1] SDHC_CTRL: 0xe7ffe001
+[   25.694275@1] SDHC_STAT: 0x0000002e
+[   25.694280@1] SDHC_CLKC: 0x0002f010
+[   25.694284@1] SDHC_ADDR: 0x3fc80200
+[   25.694289@1] SDHC_PDMA: 0x2c43bcf0
+[   25.694293@1] SDHC_MISC: 0xe0000150
+[   25.694298@1] SDHC_DATA: 0x646d206b
+[   25.694303@1] SDHC_ICTL: 0x000030e6
+[   25.694307@1] SDHC_ISTA: 0x00004549
+[   25.694312@1] SDHC_SRST: 0x00000000
+[   25.694316@1] SDHC_ESTA: 0x00000000
+[   25.694321@1] SDHC_ENHC: 0x00fe0cff
+[   25.694325@1] SDHC_CLK2: 0x0000100f
+[   25.694419@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.713407@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0020de30, xfer_step=3, status=4, cmd25=182, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.713407@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.713432@1] ***********SDHC_REGS***********
+[   25.713438@1] SDHC_ARGU: 0x00000900
+[   25.713442@1] SDHC_SEND: 0x000700d2
+[   25.713447@1] SDHC_CTRL: 0xe7ffe001
+[   25.713451@1] SDHC_STAT: 0x00000020
+[   25.713456@1] SDHC_CLKC: 0x0002f010
+[   25.713461@1] SDHC_ADDR: 0x3fc80200
+[   25.713465@1] SDHC_PDMA: 0x2c43bcf0
+[   25.713470@1] SDHC_MISC: 0xe0000150
+[   25.713474@1] SDHC_DATA: 0x0001e70c
+[   25.713479@1] SDHC_ICTL: 0x000030e6
+[   25.713484@1] SDHC_ISTA: 0x00004549
+[   25.713488@1] SDHC_SRST: 0x00000000
+[   25.713493@1] SDHC_ESTA: 0x00000000
+[   25.713497@1] SDHC_ENHC: 0x00fe0cff
+[   25.713502@1] SDHC_CLK2: 0x0000100f
+[   25.713597@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.831322@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00483dc0, xfer_step=3, status=4, cmd25=191, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.831322@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.831346@1] ***********SDHC_REGS***********
+[   25.831352@1] SDHC_ARGU: 0x00000900
+[   25.831356@1] SDHC_SEND: 0x000700d2
+[   25.831361@1] SDHC_CTRL: 0xe7ffe001
+[   25.831366@1] SDHC_STAT: 0x00000020
+[   25.831370@1] SDHC_CLKC: 0x0002f010
+[   25.831375@1] SDHC_ADDR: 0x3fc80200
+[   25.831380@1] SDHC_PDMA: 0x2c43bcf0
+[   25.831384@1] SDHC_MISC: 0xe0000150
+[   25.831389@1] SDHC_DATA: 0x0001354c
+[   25.831393@1] SDHC_ICTL: 0x000030e6
+[   25.831398@1] SDHC_ISTA: 0x00004549
+[   25.831402@1] SDHC_SRST: 0x00000000
+[   25.831407@1] SDHC_ESTA: 0x00000000
+[   25.831411@1] SDHC_ENHC: 0x00fe0cff
+[   25.831416@1] SDHC_CLK2: 0x0000100f
+[   25.831511@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.878420@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00620f18, xfer_step=3, status=4, cmd25=194, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x2e
+[   25.878420@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.878445@1] ***********SDHC_REGS***********
+[   25.878450@1] SDHC_ARGU: 0x00000900
+[   25.878455@1] SDHC_SEND: 0x000700d2
+[   25.878460@1] SDHC_CTRL: 0xe7ffe001
+[   25.878465@1] SDHC_STAT: 0x00000034
+[   25.878469@1] SDHC_CLKC: 0x0002f010
+[   25.878474@1] SDHC_ADDR: 0x3fc80200
+[   25.878478@1] SDHC_PDMA: 0x2c43bcf0
+[   25.878483@1] SDHC_MISC: 0xe0000150
+[   25.878488@1] SDHC_DATA: 0x0001f30c
+[   25.878492@1] SDHC_ICTL: 0x000030e6
+[   25.878497@1] SDHC_ISTA: 0x00000549
+[   25.878501@1] SDHC_SRST: 0x00000000
+[   25.878506@1] SDHC_ESTA: 0x00000000
+[   25.878510@1] SDHC_ENHC: 0x00fe0cff
+[   25.878515@1] SDHC_CLK2: 0x0000100f
+[   25.878609@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.908854@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00538330, xfer_step=3, status=4, cmd25=198, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x3c
+[   25.908854@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.908877@1] ***********SDHC_REGS***********
+[   25.908883@1] SDHC_ARGU: 0x00000900
+[   25.908888@1] SDHC_SEND: 0x000700d2
+[   25.908892@1] SDHC_CTRL: 0xe7ffe001
+[   25.908897@1] SDHC_STAT: 0x0000003a
+[   25.908901@1] SDHC_CLKC: 0x0002f010
+[   25.908906@1] SDHC_ADDR: 0x3fc80200
+[   25.908911@1] SDHC_PDMA: 0x2c43bcf0
+[   25.908915@1] SDHC_MISC: 0xe0000150
+[   25.908920@1] SDHC_DATA: 0x0001750c
+[   25.908924@1] SDHC_ICTL: 0x000030e6
+[   25.908929@1] SDHC_ISTA: 0x00004549
+[   25.908934@1] SDHC_SRST: 0x00000000
+[   25.908938@1] SDHC_ESTA: 0x00000000
+[   25.908942@1] SDHC_ENHC: 0x00fe0cff
+[   25.908947@1] SDHC_CLK2: 0x0000100f
+[   25.909040@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.915180@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00538338, xfer_step=3, status=4, cmd25=199, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.915180@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.915203@1] ***********SDHC_REGS***********
+[   25.915209@1] SDHC_ARGU: 0x00000900
+[   25.915214@1] SDHC_SEND: 0x000700d2
+[   25.915218@1] SDHC_CTRL: 0xe7ffe001
+[   25.915223@1] SDHC_STAT: 0x00000020
+[   25.915227@1] SDHC_CLKC: 0x0002f010
+[   25.915232@1] SDHC_ADDR: 0x3fc80200
+[   25.915236@1] SDHC_PDMA: 0x2c43bcf0
+[   25.915241@1] SDHC_MISC: 0xe0000150
+[   25.915245@1] SDHC_DATA: 0x0001750c
+[   25.915250@1] SDHC_ICTL: 0x000030e6
+[   25.915255@1] SDHC_ISTA: 0x00004549
+[   25.915259@1] SDHC_SRST: 0x00000000
+[   25.915264@1] SDHC_ESTA: 0x00000000
+[   25.915268@1] SDHC_ENHC: 0x00fe0cff
+[   25.915272@1] SDHC_CLK2: 0x0000100f
+[   25.915383@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.928424@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00538358, xfer_step=3, status=4, cmd25=202, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.928424@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.928447@1] ***********SDHC_REGS***********
+[   25.928452@1] SDHC_ARGU: 0x00000900
+[   25.928457@1] SDHC_SEND: 0x000700d2
+[   25.928462@1] SDHC_CTRL: 0xe7ffe001
+[   25.928466@1] SDHC_STAT: 0x00000024
+[   25.928471@1] SDHC_CLKC: 0x0002f010
+[   25.928476@1] SDHC_ADDR: 0x3fc80200
+[   25.928480@1] SDHC_PDMA: 0x2c43bcf0
+[   25.928485@1] SDHC_MISC: 0xe0000150
+[   25.928489@1] SDHC_DATA: 0x0001750c
+[   25.928494@1] SDHC_ICTL: 0x000030e6
+[   25.928499@1] SDHC_ISTA: 0x00000549
+[   25.928503@1] SDHC_SRST: 0x00000000
+[   25.928508@1] SDHC_ESTA: 0x00000000
+[   25.928512@1] SDHC_ENHC: 0x00fe0cff
+[   25.928516@1] SDHC_CLK2: 0x0000100f
+[   25.928612@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.948253@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 0062a4b0, xfer_step=3, status=4, cmd25=206, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x549, STAT=0x3a
+[   25.948253@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.948276@1] ***********SDHC_REGS***********
+[   25.948281@1] SDHC_ARGU: 0x00000900
+[   25.948286@1] SDHC_SEND: 0x000700d2
+[   25.948291@1] SDHC_CTRL: 0xe7ffe001
+[   25.948295@1] SDHC_STAT: 0x0000002e
+[   25.948300@1] SDHC_CLKC: 0x0002f010
+[   25.948304@1] SDHC_ADDR: 0x3fc80200
+[   25.948309@1] SDHC_PDMA: 0x2c43bcf0
+[   25.948314@1] SDHC_MISC: 0xe0000150
+[   25.948318@1] SDHC_DATA: 0x0001f50c
+[   25.948323@1] SDHC_ICTL: 0x000030e6
+[   25.948328@1] SDHC_ISTA: 0x00000549
+[   25.948332@1] SDHC_SRST: 0x00000000
+[   25.948337@1] SDHC_ESTA: 0x00000000
+[   25.948341@1] SDHC_ENHC: 0x00fe0cff
+[   25.948346@1] SDHC_CLK2: 0x0000100f
+[   25.948440@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.978461@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00041f08, xfer_step=3, status=4, cmd25=214, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.978461@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.978485@1] ***********SDHC_REGS***********
+[   25.978491@1] SDHC_ARGU: 0x00000900
+[   25.978496@1] SDHC_SEND: 0x000700d2
+[   25.978500@1] SDHC_CTRL: 0xe7ffe001
+[   25.978505@1] SDHC_STAT: 0x00000020
+[   25.978509@1] SDHC_CLKC: 0x0002f010
+[   25.978514@1] SDHC_ADDR: 0x3fc80200
+[   25.978518@1] SDHC_PDMA: 0x2c43bcf0
+[   25.978523@1] SDHC_MISC: 0xe0000150
+[   25.978527@1] SDHC_DATA: 0x00008100
+[   25.978532@1] SDHC_ICTL: 0x000030e6
+[   25.978537@1] SDHC_ISTA: 0x00004549
+[   25.978541@1] SDHC_SRST: 0x00000000
+[   25.978546@1] SDHC_ESTA: 0x00000000
+[   25.978550@1] SDHC_ENHC: 0x00fe0cff
+[   25.978555@1] SDHC_CLK2: 0x0000100f
+[   25.978649@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   25.990662@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00194318, xfer_step=3, status=4, cmd25=215, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   25.990662@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   25.990686@1] ***********SDHC_REGS***********
+[   25.990692@1] SDHC_ARGU: 0x00000900
+[   25.990697@1] SDHC_SEND: 0x000700d2
+[   25.990702@1] SDHC_CTRL: 0xe7ffe001
+[   25.990706@1] SDHC_STAT: 0x00000020
+[   25.990711@1] SDHC_CLKC: 0x0002f010
+[   25.990716@1] SDHC_ADDR: 0x3fc80200
+[   25.990720@1] SDHC_PDMA: 0x2c43bcf0
+[   25.990725@1] SDHC_MISC: 0xe0000150
+[   25.990729@1] SDHC_DATA: 0x00011a0c
+[   25.990734@1] SDHC_ICTL: 0x000030e6
+[   25.990738@1] SDHC_ISTA: 0x00004549
+[   25.990743@1] SDHC_SRST: 0x00000000
+[   25.990747@1] SDHC_ESTA: 0x00000000
+[   25.990752@1] SDHC_ENHC: 0x00fe0cff
+[   25.990756@1] SDHC_CLK2: 0x0000100f
+[   25.990850@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.041693@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 001949b0, xfer_step=3, status=4, cmd25=223, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x20
+[   26.041693@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.041719@1] ***********SDHC_REGS***********
+[   26.041725@1] SDHC_ARGU: 0x00000900
+[   26.041729@1] SDHC_SEND: 0x000700d2
+[   26.041734@1] SDHC_CTRL: 0xe7ffe001
+[   26.041738@1] SDHC_STAT: 0x00000020
+[   26.041743@1] SDHC_CLKC: 0x0002f010
+[   26.041748@1] SDHC_ADDR: 0x3fc80200
+[   26.041752@1] SDHC_PDMA: 0x2c43bcf0
+[   26.041757@1] SDHC_MISC: 0xe0000150
+[   26.041761@1] SDHC_DATA: 0x00011b0c
+[   26.041766@1] SDHC_ICTL: 0x000030e6
+[   26.041770@1] SDHC_ISTA: 0x00004549
+[   26.041775@1] SDHC_SRST: 0x00000000
+[   26.041779@1] SDHC_ESTA: 0x00000000
+[   26.041784@1] SDHC_ENHC: 0x00fe0cff
+[   26.041788@1] SDHC_CLK2: 0x0000100f
+[   26.041886@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.087907@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00620f38, xfer_step=3, status=4, cmd25=230, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x4549, STAT=0x32
+[   26.087907@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.087932@1] ***********SDHC_REGS***********
+[   26.087937@1] SDHC_ARGU: 0x00000900
+[   26.087942@1] SDHC_SEND: 0x000700d2
+[   26.087947@1] SDHC_CTRL: 0xe7ffe001
+[   26.087951@1] SDHC_STAT: 0x00000020
+[   26.087956@1] SDHC_CLKC: 0x0002f010
+[   26.087961@1] SDHC_ADDR: 0x3fc80200
+[   26.087966@1] SDHC_PDMA: 0x2c43bcf0
+[   26.087970@1] SDHC_MISC: 0xe0000150
+[   26.087975@1] SDHC_DATA: 0x0001f50c
+[   26.087979@1] SDHC_ICTL: 0x000030e6
+[   26.087984@1] SDHC_ISTA: 0x00004549
+[   26.087988@1] SDHC_SRST: 0x00000000
+[   26.087993@1] SDHC_ESTA: 0x00000000
+[   26.087997@1] SDHC_ENHC: 0x00fe0cff
+[   26.088002@1] SDHC_CLK2: 0x0000100f
+[   26.088098@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.101739@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 002125a8, xfer_step=3, status=4, cmd25=234, fifo_empty=0, fifo_full=0, timeout=0, Xfer 4096 Bytes, SEND=0x700d2, iSTA=0x549, STAT=0x2c
+[   26.101739@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.101763@1] ***********SDHC_REGS***********
+[   26.101768@1] SDHC_ARGU: 0x00000900
+[   26.101773@1] SDHC_SEND: 0x000700d2
+[   26.101778@1] SDHC_CTRL: 0xe7ffe001
+[   26.101782@1] SDHC_STAT: 0x0000002e
+[   26.101787@1] SDHC_CLKC: 0x0002f010
+[   26.101792@1] SDHC_ADDR: 0x3fc80200
+[   26.101796@1] SDHC_PDMA: 0x2c43bcf0
+[   26.101801@1] SDHC_MISC: 0xe0000150
+[   26.101805@1] SDHC_DATA: 0x002ae434
+[   26.101810@1] SDHC_ICTL: 0x000030e6
+[   26.101815@1] SDHC_ISTA: 0x00000549
+[   26.101819@1] SDHC_SRST: 0x00000000
+[   26.101824@1] SDHC_ESTA: 0x00000000
+[   26.101828@1] SDHC_ENHC: 0x00fe0cff
+[   26.101833@1] SDHC_CLK2: 0x0000100f
+[   26.101926@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.108061@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00736118, xfer_step=3, status=4, cmd25=235, fifo_empty=0, fifo_full=0, timeout=0, Xfer 131072 Bytes, SEND=0xff00d2, iSTA=0x549, STAT=0x3e
+[   26.108061@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.108085@1] ***********SDHC_REGS***********
+[   26.108090@1] SDHC_ARGU: 0x00000900
+[   26.108095@1] SDHC_SEND: 0x00ff00d2
+[   26.108100@1] SDHC_CTRL: 0xe7ffe001
+[   26.108104@1] SDHC_STAT: 0x00000036
+[   26.108109@1] SDHC_CLKC: 0x0002f010
+[   26.108113@1] SDHC_ADDR: 0x3fc80200
+[   26.108118@1] SDHC_PDMA: 0x2c43bcf0
+[   26.108123@1] SDHC_MISC: 0xe0000150
+[   26.108127@1] SDHC_DATA: 0xe9a46935
+[   26.108132@1] SDHC_ICTL: 0x000030e6
+[   26.108136@1] SDHC_ISTA: 0x00004549
+[   26.108141@1] SDHC_SRST: 0x00000000
+[   26.108145@1] SDHC_ESTA: 0x00000000
+[   26.108150@1] SDHC_ENHC: 0x00fe0cff
+[   26.108154@1] SDHC_CLK2: 0x0000100f
+[   26.108257@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.241893@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00210c40, xfer_step=3, status=4, cmd25=262, fifo_empty=0, fifo_full=0, timeout=0, Xfer 32768 Bytes, SEND=0x3e00d2, iSTA=0x559, STAT=0x2e
+[   26.241893@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.241917@1] ***********SDHC_REGS***********
+[   26.241923@1] SDHC_ARGU: 0x00000900
+[   26.241928@1] SDHC_SEND: 0x003e00d2
+[   26.241932@1] SDHC_CTRL: 0xe7ffe001
+[   26.241937@1] SDHC_STAT: 0x00000024
+[   26.241941@1] SDHC_CLKC: 0x0002f010
+[   26.241946@1] SDHC_ADDR: 0x3fc80400
+[   26.241951@1] SDHC_PDMA: 0x2c43bcf0
+[   26.241955@1] SDHC_MISC: 0xe0000150
+[   26.241960@1] SDHC_DATA: 0x20202020
+[   26.241965@1] SDHC_ICTL: 0x000030e6
+[   26.241969@1] SDHC_ISTA: 0x00004559
+[   26.241974@1] SDHC_SRST: 0x00000000
+[   26.241979@1] SDHC_ESTA: 0x00000000
+[   26.241983@1] SDHC_ENHC: 0x00fe0cff
+[   26.241988@1] SDHC_CLK2: 0x0000100f
+[   26.242089@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   26.249280@1] [aml_sdhc_print_err]\x1b[0;40;32m sd: data CRC error, port=4, Cmd18 Arg 00210c80, xfer_step=3, status=4, cmd25=263, fifo_empty=0, fifo_full=0, timeout=0, Xfer 65536 Bytes, SEND=0x7f00d2, iSTA=0x549, STAT=0x2c
+[   26.249280@1] \x1b[0mPinmux: REG2=0x000000f0, REG3=0x00000000, REG4=0x00000300, REG5=0x00000000, REG6=0xfc003e4f, REG8=0x00000000
+[   26.249303@1] ***********SDHC_REGS***********
+[   26.249309@1] SDHC_ARGU: 0x00000900
+[   26.249314@1] SDHC_SEND: 0x007f00d2
+[   26.249318@1] SDHC_CTRL: 0xe7ffe001
+[   26.249323@1] SDHC_STAT: 0x0000002c
+[   26.249327@1] SDHC_CLKC: 0x0002f010
+[   26.249332@1] SDHC_ADDR: 0x3fc80200
+[   26.249337@1] SDHC_PDMA: 0x2c43bcf0
+[   26.249341@1] SDHC_MISC: 0xe0000150
+[   26.249345@1] SDHC_DATA: 0x20203e20
+[   26.249350@1] SDHC_ICTL: 0x000030e6
+[   26.249355@1] SDHC_ISTA: 0x00004549
+[   26.249359@1] SDHC_SRST: 0x00000000
+[   26.249364@1] SDHC_ESTA: 0x00000000
+[   26.249368@1] SDHC_ENHC: 0x00fe0cff
+[   26.249373@1] SDHC_CLK2: 0x0000100f
+[   26.249472@1] mmcblk0: response CRC error sending r/w cmd command, card status 0xb00
+[   28.457669@0] The PHY does not support set_wol, was CONFIG_MICREL_PHY enabled?
+[   28.916277@2] ----aml_hw_iec958_init,runtime->rate=44100--
+[   28.916289@2] audio_set_958_clk, freq=5,
+[   28.916296@2] ----aml_hw_iec958_init,runtime->rate=44100,sample_rate=5--
+[   28.916302@2] iec958 mode PCM16
+[   28.916310@2] IEC958 16bit
+[   28.916449@2] ----aml_hw_iec958_init,runtime->rate=44100--
+[   28.916457@2] ----aml_hw_iec958_init,runtime->rate=44100,sample_rate=5--
+[   28.916462@2] iec958 mode PCM16
+[   28.916469@2] IEC958 16bit
+[   30.104919@3] alsa capture long time no data, quit xrun!
+[   31.124938@3] alsa capture long time no data, quit xrun!
+[   32.144923@3] alsa capture long time no data, quit xrun!
+[   33.164929@3] alsa capture long time no data, quit xrun!
+[  140.311737@0] cur_mode = 0
+[  140.311751@0] [0x0] = 0x1dd0190
+[  140.311756@0] [0x4] = 0xf800ca
+[  140.311760@0] [0x8] = 0x82006e
+[  140.311766@0] [0xc] = 0x3c0030
+[  140.311770@0] [0x10] = 0x30fa0013
+[  140.311775@0] [0x18] = 0x6f19000
+[  140.311780@0] [0x1c] = 0x9f40
+[  140.311785@0] [0x20] = 0x0
+[  140.311789@0] [0x24] = 0x0
+[  140.311794@0] [0x28] = 0x0
+[  140.311800@0] set_remote_mode[65]
+[  140.527097@0] aml_audio_i2s_mute_flag: flag=0
+[  140.527136@0] aml_spdif_unmute
+[  140.881322@3] init: plymouth-stop pre-start process (1891) terminated with status 1
