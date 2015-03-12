@@ -163,3 +163,48 @@ Select as appropriate from the menu. This should be followed by a reboot.
 Remove unused locales:
   sudo locale-gen --purge en_GB.utf8 en_US.UTF-8 && echo Success!
 N.B. The mentioned locales are preserved while the rest are removed.
+
+Odroid Infrared hacking:
+http://forum.odroid.com/viewtopic.php?f=112&t=8062
+Tutorial
+1. set debug_enable = 1 in /etc/odroid_remote.conf
+2. run odroid_remote /etc/odroid_remote.conf
+3. run tail -f /var/log/kern.log
+4. press button on remote, you will see in console some think like that 0xAABBCCCC
+AA - ignore it, BB - it is remote scan code, CCCC - it is factory code. For example:
+Jan 4 21:25:29 odroid kernel: [ 300.200862@0] Wrong custom code is 0xfd020e78
+Jan 4 21:25:30 odroid kernel: [ 300.973194@0] Wrong custom code is 0xf6090e78
+Jan 4 21:25:31 odroid kernel: [ 302.049929@0] Wrong custom code is 0xfc030e78
+Jan 4 21:25:31 odroid kernel: [ 302.554062@0] Wrong custom code is 0xfe010e78
+Jan 4 21:25:32 odroid kernel: [ 303.040163@0] Wrong custom code is 0xfd020e78
+
+In 0xfd020e78: 02 - scan code, 0e78 - factory code
+
+5. edit /etc/odroid_remote.conf
+set factory_code = 0xCCCC0001, there CCCC - factory code of your remote
+
+6. run odroid_remote /etc/odroid_remote.conf
+and press keys on remote. You will see scan codes for your remote like this:
+Jan 4 21:28:04 odroid kernel: [ 455.132315@0] scancode is 0x0001, invalid key is 0x0000.
+Jan 4 21:28:04 odroid kernel: [ 455.185252@0] scancode is 0x0009, invalid key is 0x0000.
+Jan 4 21:28:04 odroid kernel: [ 455.427281@0] scancode is 0x0009, invalid key is 0x0000.
+Jan 4 21:28:04 odroid kernel: [ 455.427461@0] scancode is 0x0009, invalid key is 0x0000.
+Jan 4 21:28:04 odroid kernel: [ 455.592298@0] scancode is 0x0009, invalid key is 0x0000.
+Jan 4 21:28:04 odroid kernel: [ 455.758658@0] scancode is 0x0003, invalid key is 0x0000.
+Jan 4 21:28:05 odroid kernel: [ 456.111993@0] scancode is 0x0003, invalid key is 0x0000.
+Jan 4 21:28:05 odroid kernel: [ 456.139341@0] scancode is 0x0000, invalid key is 0x0000.
+Jan 4 21:28:05 odroid kernel: [ 456.491817@0] scancode is 0x0000, invalid key is 0x0000.
+
+there 0x0009 is 0x09 scan code for odroid_remote.conf
+
+7. Edit your /etc/odroid_remote.conf and assign codes to keys, like:
+key_begin
+0x09 105 # left key
+key_end
+
+repeat_key_begin
+0x09 105 #left key
+repeat_key_end
+
+Refer to http://www.comptechdoc.org/os/linux/how ... codes.html
+for linux key codes there "key number" column is wanted linux key code. Left is 105.
