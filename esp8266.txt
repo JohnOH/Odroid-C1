@@ -19,3 +19,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/
 
 export PATH=/home/john/github/esp8266/esp-open-sdk/xtensa-lx106-elf/bin:$PATH
 
+edit @tve Makefile:
+SDK_BASE ?= $(abspath ../esp_iot_sdk_v1.1.2p)
+on my system I needed:
+SDK_BASE ?= $(abspath ../esp_iot_sdk_v1.1.2)
