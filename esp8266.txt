@@ -23,3 +23,7 @@ edit @tve Makefile:
 SDK_BASE ?= $(abspath ../esp_iot_sdk_v1.1.2p)
 on my system I needed:
 SDK_BASE ?= $(abspath ../esp_iot_sdk_v1.1.2)
+
+Flashing the device after make:
+./wiflash 192.168.1.24 firmware/user1.bin firmware/user2.bin
+
