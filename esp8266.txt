@@ -1,0 +1,21 @@
+/* Install SDK and build from Sources 2015/06/22.
+https://github.com/pfalcon/esp-open-sdk
+SDK: http://bbs.espressif.com/viewtopic.php?f=5&t=591&sid=5b3f246ae1062adff72b48bfbad9ce4c
+Patch for SDK: http://bbs.espressif.com/viewtopic.php?f=5&t=608&sid=5b3f246ae1062adff72b48bfbad9ce4c
+Please replace them in esp_iot_sdk/lib folder.
+
+sudo apt-get install make unrar autoconf automake libtool gcc g++ gperf flex bison texinfo gawk ncurses-dev libexpat-dev python sed
+
+https://github.com/jeelabs/esp-link
+cd esp-link
+git submodule init
+git submodule update
+
+Make sure esp-open-sdk/xtensa-lx106-elf/bin is in the PATH
+http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path
+PATH=$PATH:~esp-open-sdk/xtensa-lx106-elf/bin
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin:/home/john/go/bin:/home/john/github/esp8266/esp-open-sdk/xtensa-lx106-elf/bin
+
+export PATH=/home/john/github/esp8266/esp-open-sdk/xtensa-lx106-elf/bin:$PATH
+
